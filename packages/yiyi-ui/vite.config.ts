@@ -16,6 +16,12 @@ export default defineConfig({
       fileName: 'yiyi',
     },
     rollupOptions: {
+      /**
+       * 该组件库是直接用于 vue2 或 vue3 环境，宿主会提供对应 vue 环境
+       * 将 vue 和 vue-demi 排除可以缩小库体积
+       * 并且可以防止和宿主环境 vue 版本冲突
+       * 避免 CSS 应用失败
+       */
       external: ['vue', 'vue-demi'],
       output: {
         globals: {
