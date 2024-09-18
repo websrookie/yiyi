@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import YiyiUi from '@yiyi/ui';
+import YiyiUi from '@yiyi/ui/vue2';
 const { YiyiImage } = YiyiUi;
 
 export default {

@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "pnpm": ">=7",
+    "node": ">=18"
+  },
   "scripts": {
     "ui": "pnpm -F @yiyi/ui dev",
-    "clear": "rimraf --glob ./node_modules ./packages/**/node_modules ./packages/**/dist"
+    "clear": "rimraf --glob ./node_modules ./packages/**/node_modules ./packages/**/dist",
+    "play:vue3": "pnpm -F @yiyi/ui build && pnpm -F @yiyi/playground-vue3 dev",
+    "play:vue2": "pnpm -F @yiyi/ui build && pnpm -F @yiyi/playground-vue2 dev"
   },
   "keywords": [],
   "author": "",

@@ -79,6 +79,7 @@ importers:
       '@types/node': ^22.5.4
       '@vitejs/plugin-vue': ^5.1.2
       '@vue/composition-api': ^1.7.2
+      rimraf: ^6.0.1
       typescript: ^5.5.3
       vite: ^5.4.1
       vite-plugin-vue2: ^2.0.3
@@ -96,6 +97,7 @@ importers:
     devDependencies:
       '@types/node': 22.5.5
       '@vitejs/plugin-vue': 5.1.4_vite@5.4.6+vue@2.7.16
+      rimraf: 6.0.1
       typescript: 5.6.2
       vite: 5.4.6_@types+node@22.5.5
       vite-plugin-vue2: 2.0.3_p55swklmbcgwxzkafnptw3wz44
@@ -1904,8 +1906,8 @@ packages:
     dev: true
     optional: true
 
-  /@polka/url/1.0.0-next.25:
-    resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
+  /@polka/url/1.0.0-next.27:
+    resolution: {integrity: sha512-MU0SYgcrBdSVLu7Tfow3VY4z1odzlaTYRjt3WQ0z8XbjDWReuy+EALt2HdjhrwD2HPiW2GY+KTSw4HLv4C/EOA==}
     dev: true
 
   /@rollup/pluginutils/4.2.1:
@@ -7619,7 +7621,7 @@ packages:
     resolution: {integrity: sha512-94Bdh3cC2PKrbgSOUqTiGPWVZeSiXfKOVZNJniWoqrWrRkB1CJzBU3NEbiTsPcYy1lDsANA/THzS+9WBiy5nfQ==}
     engines: {node: '>= 10'}
     dependencies:
-      '@polka/url': 1.0.0-next.25
+      '@polka/url': 1.0.0-next.27
       mrmime: 2.0.0
       totalist: 3.0.1
     dev: true

@@ -1,10 +1,19 @@
-<script setup lang="ts">
-import { ref } from 'vue';
+<script lang="ts">
+import { defineComponent } from 'vue-demi';
 
-defineProps<{ src: string }>();
-
-const value = ref(111);
-console.log(value);
+export default defineComponent({
+  props: {
+    src: String,
+  },
+  data() {
+    return {
+      value: 11,
+    };
+  },
+  mounted() {
+    console.warn(this.value);
+  },
+});
 </script>
 
 <template>

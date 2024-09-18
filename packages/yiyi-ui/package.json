@@ -3,17 +3,37 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "./dist/yiyi.umd.cjs",
-  "module": "./dist/yiyi.js",
-  "style": "./dist/style.css",
+  "main": "./dist/vue3/yiyi.umd.cjs",
+  "module": "./dist/vue3/yiyi.js",
+  "style": "./dist/vue3/style.css",
+  "exports": {
+    ".": {
+      "import": "./dist/vue3/yiyi.js",
+      "require": "./dist/vue3/yiyi.umd.cjs"
+    },
+    "./style": {
+      "import": "./dist/vue3/style.css",
+      "require": "./dist/vue3/style.css"
+    },
+    "./vue2": {
+      "import": "./dist/vue2/yiyi.js",
+      "require": "./dist/vue2/yiyi.umd.cjs"
+    },
+    "./vue2/style": {
+      "import": "./dist/vue2/style.css",
+      "require": "./dist/vue2/style.css"
+    }
+  },
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build:vue3 && pnpm build:vue2",
+    "build": "pnpm clear:dist && pnpm build:vue3 && pnpm build:vue2",
     "build:vue3": "pnpm switch:vue3 && vue-tsc -b && vite build",
     "build:vue2": "pnpm switch:vue2 && vue-tsc -b && vite build",
     "switch:vue3": "vue-demi-switch 3 vue3",
     "switch:vue2": "vue-demi-switch 2 vue2",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clear": "rimraf dist node_modules",
+    "clear:dist": "rimraf dist"
   },
   "dependencies": {
     "@vue/composition-api": "^1.7.2",
@@ -25,6 +45,7 @@
   "devDependencies": {
     "@types/node": "^22.5.4",
     "@vitejs/plugin-vue": "^5.1.2",
+    "rimraf": "^6.0.1",
     "typescript": "^5.5.3",
     "vite": "^5.4.1",
     "vite-plugin-vue2": "^2.0.3",

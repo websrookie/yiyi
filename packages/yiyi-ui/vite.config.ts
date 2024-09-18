@@ -15,5 +15,14 @@ export default defineConfig({
       name: 'yiyi',
       fileName: 'yiyi',
     },
+    rollupOptions: {
+      external: ['vue', 'vue-demi'],
+      output: {
+        globals: {
+          vue: 'Vue',
+          'vue-demi': 'VueDemi',
+        },
+      },
+    },
   },
 });
