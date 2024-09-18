@@ -10,9 +10,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "vue": "^3.5.4"
-  },
   "pnpm": {
     "packageExtensions": {
       "vue-template-compiler": {
