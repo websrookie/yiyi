@@ -1,12 +1,15 @@
+import vue from '@vitejs/plugin-vue';
 import { defineConfig } from 'vite';
-// import vue from '@vitejs/plugin-vue';
 import { createVuePlugin } from 'vite-plugin-vue2';
 import { resolve } from 'path';
+import { isVue2 } from 'vue-demi';
 
-// https://vitejs.dev/config/
+const outDirName = isVue2 ? 'vue2' : 'vue3';
+
 export default defineConfig({
-  plugins: [createVuePlugin()],
+  plugins: [isVue2 ? createVuePlugin() : vue()],
   build: {
+    outDir: `dist/${outDirName}`,
     lib: {
       entry: resolve(__dirname, 'src/main.ts'),
       name: 'yiyi',
