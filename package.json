@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "engines": {
     "pnpm": ">=7",
     "node": ">=18"
@@ -11,7 +12,17 @@
     "ui": "pnpm -F @yiyi/ui dev",
     "clear": "rimraf --glob ./node_modules ./packages/**/node_modules ./packages/**/dist",
     "play:vue3": "pnpm -F @yiyi/ui build && pnpm -F @yiyi/playground-vue3 dev",
-    "play:vue2": "pnpm -F @yiyi/ui build && pnpm -F @yiyi/playground-vue2 dev"
+    "play:vue2": "pnpm -F @yiyi/ui build && pnpm -F @yiyi/playground-vue2 dev",
+    "prepare": "husky",
+    "lint": "node ./scripts/lint.js"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-vinyl"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "pnpm lint"
   },
   "keywords": [],
   "author": "",
@@ -36,6 +47,12 @@
     }
   },
   "devDependencies": {
-    "rimraf": "^6.0.1"
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "cz-vinyl": "^2.5.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "rimraf": "^6.0.1",
+    "zx": "^8.1.7"
   }
 }
