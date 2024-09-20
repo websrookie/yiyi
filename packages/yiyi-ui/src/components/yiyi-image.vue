@@ -3,7 +3,7 @@ import { defineComponent } from 'vue-demi';
 
 export default defineComponent({
   props: {
-    src: String,
+    src: String
   },
   data() {
     return {
@@ -20,7 +20,7 @@ export default defineComponent({
   <img :src="src" class="image" />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .image {
   width: 300px;
   height: 400px;
