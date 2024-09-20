@@ -12,4 +12,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 12,
   },
+  rules: {
+    'vue/multi-word-component-names': 'off',
+  },
 };
