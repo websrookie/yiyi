@@ -2,4 +2,4 @@
 
 import 'zx/globals'
 
-$`pnpm -F @yiyi/admin lint`
+$`pnpm -F @yiyi/editor lint`
