@@ -17,8 +17,20 @@
     </div>
     <div class="right">
       <el-collapse v-model="activeNames">
-        <el-collapse-item title="基础组件" name="1"></el-collapse-item>
-        <el-collapse-item title="高级组件" name="2"></el-collapse-item>
+        <el-collapse-item title="基础组件" name="1">
+          <edit-block-drag
+            :list="baseBlockList"
+            :sort="true"
+            :group="{ name: dragGroup, pull: 'clone', put: false }"
+          ></edit-block-drag>
+        </el-collapse-item>
+        <el-collapse-item title="高级组件" name="2">
+          <edit-block-drag
+            :list="seniorBlockList"
+            :sort="true"
+            :group="{ name: dragGroup, pull: 'clone', put: false }"
+          ></edit-block-drag>
+        </el-collapse-item>
       </el-collapse>
     </div>
   </div>
@@ -26,6 +38,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { baseBlocks, seniorBlocks } from '@/config/block';
+import { dragGroup } from './nested';
 
 const menuList = ref([
   {
@@ -42,6 +56,8 @@ const menuList = ref([
 
 const activeMenu = ref(0);
 const activeNames = ref(['1', '2']);
+const baseBlockList = ref(baseBlocks);
+const seniorBlockList = ref(seniorBlocks);
 </script>
 
 <style scoped lang="scss">

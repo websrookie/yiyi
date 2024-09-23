@@ -34,10 +34,12 @@ importers:
       '@vue/eslint-config-prettier': ^9.0.0
       '@vue/eslint-config-typescript': ^13.0.0
       '@vue/tsconfig': ^0.5.1
-      '@yiyi/ui': workspace:^0.0.0
+      '@yiyi/ui': workspace:~
       element-plus: ^2.8.3
       eslint: ^8.57.0
       eslint-plugin-vue: ^9.23.0
+      loadsh: ^0.0.4
+      nanoid: ^5.0.7
       npm-run-all2: ^6.2.0
       pinia: ^2.1.7
       prettier: ^3.2.5
@@ -49,6 +51,7 @@ importers:
       vue: ^3.4.29
       vue-router: ^4.3.3
       vue-tsc: ^2.0.21
+      vuedraggable: ^4.1.0
     dependencies:
       '@yiyi/ui': link:../yiyi-ui
       element-plus: 2.8.3_vue@3.5.6
@@ -66,6 +69,8 @@ importers:
       '@vue/tsconfig': 0.5.1
       eslint: 8.57.1
       eslint-plugin-vue: 9.28.0_eslint@8.57.1
+      loadsh: 0.0.4
+      nanoid: 5.0.7
       npm-run-all2: 6.2.3
       prettier: 3.3.3
       sass: 1.79.2
@@ -74,6 +79,7 @@ importers:
       unplugin-vue-components: 0.27.4_vue@3.5.6
       vite: 5.4.6_3njyws2ljgpjuw5zvr2imfp6a4
       vue-tsc: 2.1.6_typescript@5.4.5
+      vuedraggable: 4.1.0_vue@3.5.6
 
   packages/yiyi-playground/vue2:
     specifiers:
@@ -7494,6 +7500,11 @@ packages:
       json5: 2.2.3
     dev: true
 
+  /loadsh/0.0.4:
+    resolution: {integrity: sha512-U+wLL8InpfRalWrr+0SuhWgGt10M4OyAk6G8xCYo2rwpiHtxZkWiFpjei0vO463ghW8LPCdhqQxXlMy2qicAEw==}
+    deprecated: This is a typosquat on the popular Lodash package. This is not maintained nor is the original Lodash package.
+    dev: true
+
   /local-pkg/0.5.0:
     resolution: {integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==}
     engines: {node: '>=14'}
@@ -7950,6 +7961,12 @@ packages:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /nanoid/5.0.7:
+    resolution: {integrity: sha512-oLxFY2gd2IqnjcYyOXD8XGCftpGtZP2AbHbOkthDkvRywH5ayNtPVy9YlOPcHckXzbLTCHpkb7FB+yuxKV13pQ==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+    dev: true
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
@@ -9574,6 +9591,10 @@ packages:
       websocket-driver: 0.7.4
     dev: true
 
+  /sortablejs/1.14.0:
+    resolution: {integrity: sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w==}
+    dev: true
+
   /source-map-js/1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -10943,6 +10964,15 @@ packages:
       '@vue/shared': 3.5.6
       typescript: 5.6.2
     dev: false
+
+  /vuedraggable/4.1.0_vue@3.5.6:
+    resolution: {integrity: sha512-FU5HCWBmsf20GpP3eudURW3WdWTKIbEIQxh9/8GE806hydR9qZqRRxRE3RjqX7PkuLuMQG/A7n3cfj9rCEchww==}
+    peerDependencies:
+      vue: ^3.0.1
+    dependencies:
+      sortablejs: 1.14.0
+      vue: 3.5.6_typescript@5.4.5
+    dev: true
 
   /watchpack/2.4.2:
     resolution: {integrity: sha512-TnbFSbcOCcDgjZ4piURLCbJ3nJhznVh9kw6F6iokjiFPl8ONxe9A6nMDVXDiNbrSfLILs6vB07F7wLBrwPYzJw==}
