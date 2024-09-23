@@ -11,10 +11,11 @@
   "scripts": {
     "in": "pnpm i -r",
     "build": "pnpm ui:build && pnpm -F @yiyi/ui build only",
+    "editor": "pnpm -F @yiyi/editor dev",
     "ui": "pnpm -F @yiyi/ui dev",
     "ui:build": "pnpm -F @yiyi/ui build",
     "clear": "rimraf --glob ./node_modules ./packages/**/node_modules ./packages/**/dist",
-    "dev": "pnpm -F @yiyi/editor dev",
+    "dev": "pnpm -F @yiyi/ui dev && pnpm -F @yiyi/editor dev",
     "play:vue3": "pnpm -F @yiyi/ui build && pnpm -F @yiyi/playground-vue3 dev",
     "play:vue2": "pnpm -F @yiyi/ui build && pnpm -F @yiyi/playground-vue2 dev",
     "prepare": "husky",

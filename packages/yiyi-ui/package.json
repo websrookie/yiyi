@@ -27,7 +27,7 @@
     }
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "pnpm switch:vue3 && vue-tsc -b && vite build --watch",
     "build": "pnpm clear:dist && pnpm build:vue3 && pnpm build:vue2",
     "build:vue3": "pnpm switch:vue3 && vue-tsc -b && vite build",
     "build:vue2": "pnpm switch:vue2 && vue-tsc -b && vite build",
