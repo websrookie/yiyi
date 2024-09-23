@@ -38,7 +38,7 @@ defineProps({
 });
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .edit-block-drag {
   display: flex;
   flex-wrap: wrap;
