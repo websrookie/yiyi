@@ -7,6 +7,18 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    2: typeof import('./src/components/edit-header copy 2.vue')['default']
+    3: typeof import('./src/components/edit-header copy 3.vue')['default']
+    4: typeof import('./src/components/edit-header copy 4.vue')['default']
+    copy: typeof import('./src/components/edit-header copy.vue')['default']
+    EditBlock: typeof import('./src/components/edit/edit-block.vue')['default']
+    EditConfig: typeof import('./src/components/edit/edit-config.vue')['default']
+    EditHeader: typeof import('./src/components/edit/edit-header.vue')['default']
+    EditRender: typeof import('./src/components/edit/edit-render.vue')['default']
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElOption: typeof import('element-plus/es')['ElOption']
+    ElSelect: typeof import('element-plus/es')['ElSelect']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']
@@ -16,6 +28,10 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
+    VIcon: typeof import('./src/components/base/v-icon.vue')['default']
+    VIconTooltip: typeof import('./src/components/base/v-icon-tooltip.vue')['default']
+    VInconTooltip: typeof import('./src/components/base/v-incon-tooltip.vue')['default']
+    VSelect: typeof import('./src/components/base/v-select.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }
 }
