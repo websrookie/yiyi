@@ -88,7 +88,7 @@ importers:
       '@vue/cli-plugin-babel': ~5.0.0
       '@vue/cli-plugin-eslint': ~5.0.0
       '@vue/cli-service': ~5.0.0
-      '@yiyi/ui': workspace:^0.0.0
+      '@yiyi/ui': workspace:~
       core-js: ^3.8.3
       eslint: ^7.32.0
       eslint-plugin-vue: ^8.0.3
@@ -116,7 +116,7 @@ importers:
       '@vitejs/plugin-vue': ^5.0.5
       '@vue/eslint-config-typescript': ^13.0.0
       '@vue/tsconfig': ^0.5.1
-      '@yiyi/ui': workspace:^0.0.0
+      '@yiyi/ui': workspace:~
       eslint: ^8.57.0
       eslint-plugin-vue: ^9.23.0
       npm-run-all2: ^6.2.0

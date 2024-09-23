@@ -17,30 +17,30 @@ import { exec } from 'child_process';
 function ex(cmd, cb) {
   const ls = exec(cmd);
 
-  ls.stdout.on('data', data => {
+  ls.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);
     if (cb) cb(data);
   });
 
-  ls.stderr.on('data', data => {
+  ls.stderr.on('data', (data) => {
     console.error(`stderr: ${data}`);
   });
 
-  ls.on('close', code => {
+  ls.on('close', (code) => {
     console.log(`child process exited with code ${code}`);
   });
 }
 
 function main() {
   let firstUiBuild = true;
-  ex(`pnpm ui`, msg => {
+  ex(`pnpm ui`, (msg) => {
     if (!firstUiBuild) return;
     if (msg.startsWith('\u001b[36mbuilt in') || msg.startsWith('built in')) {
       firstUiBuild = false;
+
+      ex(`pnpm editor`);
     }
   });
-
-  ex(`pnpm editor`);
 }
 
 main();
