@@ -1,15 +1,16 @@
 {
   "name": "@yiyi/ui",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "main": "./dist/vue3/yiyi.umd.cjs",
   "module": "./dist/vue3/yiyi.js",
-  "style": "./dist/vue3/style.css",
+  "types": "./dist/vue3/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/vue3/yiyi.js",
-      "require": "./dist/vue3/yiyi.umd.cjs"
+      "require": "./dist/vue3/yiyi.umd.cjs",
+      "types": "./dist/vue3/main.d.ts"
     },
     "./style": {
       "import": "./dist/vue3/style.css",
@@ -17,7 +18,8 @@
     },
     "./vue2": {
       "import": "./dist/vue2/yiyi.js",
-      "require": "./dist/vue2/yiyi.umd.cjs"
+      "require": "./dist/vue2/yiyi.umd.cjs",
+      "types": "./dist/vue2/main.d.ts"
     },
     "./vue2/style": {
       "import": "./dist/vue2/style.css",
@@ -38,6 +40,7 @@
     "coverage": "pnpm switch:vue3 && vitest run --coverage"
   },
   "dependencies": {
+    "@sinclair/typebox": "^0.33.12",
     "@vue/composition-api": "^1.7.2",
     "vue-demi": "^0.14.10",
     "vue2": "npm:vue@~2.6.14",
@@ -54,6 +57,7 @@
     "tailwindcss": "^3.4.12",
     "typescript": "^5.5.3",
     "vite": "^5.4.1",
+    "vite-plugin-dts": "^4.2.1",
     "vite-plugin-vue2": "^2.0.3",
     "vitest": "^2.1.1",
     "vue-tsc": "^2.0.29"

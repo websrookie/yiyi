@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@yiyi/ui": "workspace:^0.0.0",
+    "@yiyi/ui": "workspace:~",
     "core-js": "^3.8.3",
     "vue": "^2.6.14"
   },

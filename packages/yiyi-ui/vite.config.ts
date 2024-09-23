@@ -1,13 +1,26 @@
 import vue from '@vitejs/plugin-vue';
+import dts from 'vite-plugin-dts';
 import { defineConfig } from 'vite';
 import { createVuePlugin } from 'vite-plugin-vue2';
 import { resolve } from 'path';
-import { isVue2 } from 'vue-demi';
+import { isVue2, isVue3 } from 'vue-demi';
 
 const outDirName = isVue2 ? 'vue2' : 'vue3';
 
 export default defineConfig({
-  plugins: [isVue2 ? createVuePlugin() : vue()],
+  plugins: [
+    isVue2 ? createVuePlugin() : vue(),
+    isVue3 &&
+      dts({
+        // 指定 tsconfig 文件
+        tsconfigPath: 'tsconfig.app.json',
+      }),
+  ],
+  resolve: {
+    alias: {
+      '@': resolve('./src'),
+    },
+  },
   build: {
     outDir: `dist/${outDirName}`,
     lib: {

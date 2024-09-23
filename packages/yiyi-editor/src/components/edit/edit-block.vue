@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="right">
-      <el-collapse v-mode="activeNames">
+      <el-collapse v-model="activeNames">
         <el-collapse-item title="基础组件" name="1"></el-collapse-item>
         <el-collapse-item title="高级组件" name="2"></el-collapse-item>
       </el-collapse>
