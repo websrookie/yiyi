@@ -1,7 +1,8 @@
-import './style.css';
+import '@/assets/styles/index.scss';
 
-import YiyiImage from './components/yiyi-image.vue';
+import YiyiImage from './components/image';
 import imageSchema from '@/components/image/schema';
+import { App } from 'vue-demi';
 
 export { schemaAllViewport } from '@/utils/components';
 
@@ -9,4 +10,18 @@ export const schema = {
   image: imageSchema
 };
 
-export default { YiyiImage };
+const components = [
+  YiyiImage
+];
+
+const install = (app: App) => {
+  components.forEach((component: any) => {
+    app.component(component.name, component);
+  })
+}
+
+export const componentsAllViewport = {
+  ...components
+}
+
+export default {install, YiyiImage };

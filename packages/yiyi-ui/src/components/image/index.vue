@@ -1,3 +1,7 @@
+<template>
+  <img :src="src" class="image" />
+</template>
+
 <script lang="ts">
 import { defineComponent } from 'vue-demi';
 
@@ -16,11 +20,7 @@ export default defineComponent({
 });
 </script>
 
-<template>
-  <img :src="src" class="image" />
-</template>
-
-<style lang="scss" scoped>
+<style scoped lang="scss" >
 .image {
   width: 300px;
   height: 400px;
