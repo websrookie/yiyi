@@ -25,19 +25,23 @@
   $pcValue: if(unitless($pc), #{$pc}px, $pc);
   $mobileValue: if(unitless($mobile), vw($mobile), $mobile);
   $mobileContainerValue: if(unitless($mobile), #{$mobile}px, $mobile);
-  @if(exist($pc)){
-    @include pc{
+
+  @if (exists($pc)) {
+    @include pc {
       #{$property}: $pcValue;
     }
   }
-  @if(exist($mobile)){
-    @include mb-ct{
+
+  @if (exists($mobile)) {
+    @include mb-ct {
       #{$property}: $mobileContainerValue;
     }
-    @include mb{
+    @include mb {
       #{$property}: $mobileValue;
     }
   }
 }
 
 // @include res(font-size, 12, 20);
+// @include res(width, 12, 20);
+// @include res(height, 12, 20);

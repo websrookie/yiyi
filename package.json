@@ -10,7 +10,7 @@
   },
   "scripts": {
     "in": "pnpm i -r",
-    "build": "pnpm ui:build && pnpm -F @yiyi/ui build only",
+    "build": "pnpm ui:build && pnpm -F @yiyi/editor build only",
     "editor": "pnpm -F @yiyi/editor dev",
     "ui": "pnpm -F @yiyi/ui dev",
     "ui:build": "pnpm -F @yiyi/ui build",
