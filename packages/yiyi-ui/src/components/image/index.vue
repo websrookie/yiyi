@@ -27,24 +27,18 @@ export default defineComponent({
   },
   setup(props) {
     const { data, viewport } = toRefs(props);
-    const classes = computed(() => [n()])?.value;
+    const classes = computed(() => [n()]);
     const display = computed(() =>
       data.value?.display ? [viewport.value] : ''
-    )?.value;
-    const src = computed(() => data.value?.src?.[viewport.value] || '')?.value;
-    const link = computed(
-      () => data.value?.link?.[viewport.value] || ''
-    )?.value;
-    const width = computed(
-      () => data.value?.width?.[viewport.value] || ''
-    )?.value;
-    const height = computed(
-      () => data.value?.height?.[viewport.value] || ''
-    )?.value;
+    );
+    const src = computed(() => data.value?.src?.[viewport.value] || '');
+    const link = computed(() => data.value?.link?.[viewport.value] || '');
+    const width = computed(() => data.value?.width?.[viewport.value] || '');
+    const height = computed(() => data.value?.height?.[viewport.value] || '');
     const styles = computed(() => ({
-      width: width,
-      height: height,
-    }))?.value;
+      width: width.value,
+      height: height.value,
+    }));
     return {
       classes,
       styles,
