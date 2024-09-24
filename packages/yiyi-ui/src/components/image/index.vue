@@ -3,7 +3,7 @@
     <yiyi-link v-if="src" :to="link" target="_blank">
       <img v-bind="$attrs" :src="src" class="image" :style="styles" />
     </yiyi-link>
-    <div class="no-image" v-else>
+    <div class="yiyi-image" v-else>
       <yiyi-empty description="暂无图片请上传" />
     </div>
   </div>

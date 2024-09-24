@@ -7,6 +7,7 @@ import router from './router';
 import Draggable from 'vuedraggable';
 import Yiyi from '@yiyi/ui';
 
+import '@yiyi/ui/style';
 import './assets/styles/main.scss';
 
 const app = createApp(App);
