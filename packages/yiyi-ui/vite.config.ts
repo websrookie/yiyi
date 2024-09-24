@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
 import { defineConfig } from 'vite';
@@ -52,4 +54,11 @@ export default defineConfig({
       },
     },
   },
+  test: {
+    environment: 'jsdom',
+    coverage: {
+      include: ['src/components/**/*'],
+      exclude: ['src/**/schema.ts'],
+    }
+  }
 });
