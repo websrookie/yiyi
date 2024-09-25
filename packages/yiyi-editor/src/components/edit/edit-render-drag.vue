@@ -11,12 +11,38 @@
     :move="move"
   >
     <template #item="{ element }">
-      <div
-        class="element"
-        :class="activeClass(element)"
-        @click.stop="edit.setCurrentSelect(element)"
-      >
-        <div class="block-render">
+      <div class="element">
+        <div
+          v-if="element.nested && level < 2"
+          class="block-nested-render"
+          :class="activeClass(element)"
+          @click.stop="edit.setCurrentSelect(element)"
+        >
+          <component
+            :is="renderComponentCode(element)"
+            :key="element.id"
+            :data="element.formData"
+            :children="element.children"
+            :viewport="edit.viewport"
+          >
+            <template #default="{ item, index }">
+              <edit-render-drag
+                class="nested-item"
+                :key="element.id + '-' + index"
+                :class="nestedClass"
+                :list="item"
+                :level="level + 1"
+                :group="group"
+              ></edit-render-drag>
+            </template>
+          </component>
+        </div>
+        <div
+          v-else
+          class="block-render"
+          :class="activeClass(element)"
+          @click.stop="edit.setCurrentSelect(element)"
+        >
           <component
             :is="renderComponentCode(element)"
             :data="element.formData"
@@ -32,7 +58,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useEditorStore } from '@/stores/edit';
-import { move, clone } from './nested';
+import { move, clone, nestedClass } from './nested';
 
 defineOptions({
   name: 'EditRenderDrag',

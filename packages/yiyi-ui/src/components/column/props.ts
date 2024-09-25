@@ -16,11 +16,7 @@ export type MoColumnPropsData = {
   };
 };
 
-export type MoColumnPropsList = {
-  desktop: any[][];
-  mobile: any[][];
-};
-
+export type MoColumnPropsList = any[][];
 export const props = {
   data: {
     type: Object as PropType<MoColumnPropsData>,
@@ -33,11 +29,8 @@ export const props = {
     }),
   },
   children: {
-    type: Object as PropType<MoColumnPropsList>,
-    default: () => ({
-      desktop: [[], []],
-      mobile: [[], []],
-    }),
+    type: Array as PropType<MoColumnPropsList>,
+    default: () => [[], []],
   },
   viewport: {
     type: String as PropType<ComponentViewport>,

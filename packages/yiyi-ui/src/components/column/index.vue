@@ -22,12 +22,14 @@ export default defineComponent({
   name,
   props,
   setup(props) {
-    const { data, viewport } = toRefs(props);
+    const { data, viewport, children } = toRefs(props);
     const classes = computed(() => [n()]);
     const slotItem = computed(
-      () => (index: number) => data.value?.cols?.[viewport.value]?.[index] || []
+      () => (index: number) => children.value?.[index] || []
     );
-    const cols = computed(() => data.value?.cols?.[viewport.value] || '');
+    const cols = computed(
+      () => data.value?.cols?.[viewport.value] || [0.5, 0.5]
+    );
     const background = computed(
       () => data.value?.background?.[viewport.value] || ''
     );
