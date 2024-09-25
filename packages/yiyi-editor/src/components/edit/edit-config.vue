@@ -28,7 +28,7 @@ const handlePanelSwitch = () => {
 watch(
   () => edit.currentSelect,
   (value) => {
-    if (value) edit.setConfigPanelShow(true);
+    if (value?.id) edit.setConfigPanelShow(true);
   },
 );
 
@@ -42,7 +42,7 @@ watch(
 watch(
   () => edit.configPanelShow,
   (value) => {
-    if (value) edit.setCurrentSelect(null);
+    if (!value) edit.setCurrentSelect(null);
   },
 );
 </script>

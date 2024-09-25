@@ -10,7 +10,6 @@ import Yiyi from '@yiyi/ui';
 import '@yiyi/ui/style';
 import './assets/styles/main.scss';
 
-console.log(Yiyi, 'Yiyi');
 const app = createApp(App);
 
 app.component('yiyi-icon', Icon);

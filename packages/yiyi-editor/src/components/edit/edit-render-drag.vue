@@ -59,6 +59,7 @@
 import { computed } from 'vue';
 import { useEditorStore } from '@/stores/edit';
 import { move, clone, nestedClass } from './nested';
+import { COMPONENT_PREFIX } from '@/config';
 
 defineOptions({
   name: 'EditRenderDrag',
@@ -88,14 +89,14 @@ defineProps({
 
 const renderComponentCode = computed(() => {
   return (element: { code: string }) => {
-    return element.code;
+    return `${COMPONENT_PREFIX}-${element.code}`;
   };
 });
 
 const activeClass = computed(() => {
   return (element: { id: string }) => {
     const id = edit.currentSelect?.id || '';
-    return { 'is-active': (element.id = id) };
+    return { 'is-active': element.id === id };
   };
 });
 </script>

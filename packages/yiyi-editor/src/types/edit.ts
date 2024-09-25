@@ -36,7 +36,7 @@ export interface BaseBlock {
   /**
    * 配置内容
    */
-  formData?: BlockSchema[BlockSchemaKeys] | Object;
+  formData?: Partial<BlockSchema[BlockSchemaKeys]> | Object;
 
   /**
    * 父组件code

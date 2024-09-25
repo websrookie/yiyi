@@ -12,41 +12,40 @@
  * }
  */
 import type { BaseBlock } from '@/types/edit';
-import { COMPONENT_PREFIX } from '@yiyi/ui';
 
 export const baseBlocks: BaseBlock[] = [
   {
     id: '',
     name: '图片',
-    code: `${COMPONENT_PREFIX}-image`,
+    code: 'image',
     icon: 'image',
     formData: {},
   },
   {
     id: '',
     name: '视频',
-    code: `${COMPONENT_PREFIX}-video`,
+    code: 'video',
     icon: 'video',
     formData: {},
   },
   {
     id: '',
     name: '文本',
-    code: `${COMPONENT_PREFIX}-text`,
+    code: 'text',
     icon: 'text',
     formData: {},
   },
   {
     id: '',
     name: '幻灯片',
-    code: `${COMPONENT_PREFIX}-swiper`,
+    code: 'swiper',
     icon: 'swiper',
     formData: {},
   },
   {
     id: '',
     name: '留白',
-    code: `${COMPONENT_PREFIX}-blank`,
+    code: 'blank',
     icon: 'blank',
     formData: {},
   },
@@ -56,7 +55,7 @@ export const seniorBlocks: BaseBlock[] = [
   {
     id: '',
     name: '多行',
-    code: `${COMPONENT_PREFIX}-row`,
+    code: 'row',
     icon: 'row',
     nested: true,
     children: [[]],
@@ -65,7 +64,7 @@ export const seniorBlocks: BaseBlock[] = [
   {
     id: '',
     name: '多列',
-    code: `${COMPONENT_PREFIX}-column`,
+    code: 'column',
     icon: 'column',
     nested: true,
     children: [[], []],
@@ -74,7 +73,7 @@ export const seniorBlocks: BaseBlock[] = [
   {
     id: '',
     name: '画布',
-    code: `${COMPONENT_PREFIX}-canvas`,
+    code: 'canvas',
     icon: 'canvas',
     nested: true,
     children: [[]],
@@ -86,7 +85,7 @@ export const canvasBlocks: BaseBlock[] = [
   {
     id: '',
     name: '图片',
-    code: `${COMPONENT_PREFIX}-image`,
+    code: 'image',
     icon: 'image',
     formData: {},
     parent: 'canvas',
@@ -94,7 +93,7 @@ export const canvasBlocks: BaseBlock[] = [
   {
     id: '',
     name: '文本',
-    code: `${COMPONENT_PREFIX}-text`,
+    code: 'text',
     icon: 'text',
     formData: {},
     parent: 'canvas',
