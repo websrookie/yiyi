@@ -15,6 +15,10 @@ export const useEditorStore = defineStore('edit', {
      * 配置面板开关
      */
     configPanelShow: false,
+    /**
+     * 所有的配置信息
+     */
+    blocksConfig: [] as BaseBlock[],
   }),
   getters: {
     isMobileViewport: (state) => state.viewport === 'mobile',
@@ -28,6 +32,9 @@ export const useEditorStore = defineStore('edit', {
     },
     setConfigPanelShow(value: boolean) {
       this.configPanelShow = value;
+    },
+    setBlocksConfig(value: BaseBlock[]) {
+      this.blocksConfig = value;
     },
   },
 });

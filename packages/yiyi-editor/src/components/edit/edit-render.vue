@@ -6,11 +6,34 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import type { BaseBlock } from '@/types/edit';
 import { dragGroup } from './nested';
+import { useEditorStore } from '@/stores/edit';
+
+const edit = useEditorStore();
 
 const list = ref<BaseBlock[]>([]);
+
+watch(
+  () => list.value,
+  (value) => {
+    edit.setBlocksConfig(value);
+  },
+  {
+    deep: true,
+  },
+);
+
+watch(
+  () => edit.blocksConfig,
+  (value) => {
+    list.value = value;
+  },
+  {
+    deep: true,
+  },
+);
 </script>
 
 <style scoped lang="scss">

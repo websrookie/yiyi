@@ -1,4 +1,5 @@
 import { customAlphabet } from 'nanoid';
+import { markRaw, type Component, defineAsyncComponent } from 'vue';
 
 /**
  * 随机id生成
@@ -17,4 +18,20 @@ export const nanoid = (length = 8) => {
  */
 export const sleep = (delay: number) => {
   return new Promise((resolve) => setTimeout(resolve, delay));
+};
+
+export const batchDynamicComponent = (name: string, importUrl: Record<string, Component>) => {
+  const components = importUrl;
+  const componentMap = Object.assign(
+    {},
+    ...Object.keys(components).map((item) => {
+      const name = item?.split('/')?.pop()?.replace('.vue', '') || '';
+      return {
+        [name]: components[item],
+      };
+    }),
+  );
+  const importComponent = componentMap[name];
+  if (!importComponent) return '';
+  return markRaw(defineAsyncComponent(importComponent));
 };

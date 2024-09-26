@@ -1,5 +1,7 @@
+import type { BaseBlock, Viewport } from '@/types/edit';
 import { nanoid } from '@/utils';
-import { cloneDeep } from 'lodash';
+import { cloneDeep, isEqual } from 'lodash';
+import deepmerge from 'deepmerge';
 
 /**
  * column 嵌套 class
@@ -32,4 +34,31 @@ export const move = (e: any) => {
  */
 export const clone = (e: object) => {
   return cloneDeep({ ...e, id: nanoid(8) });
+};
+
+export interface FindNodeByIdCallBack {
+  array: BaseBlock[];
+  node: BaseBlock[][number];
+  index: number;
+}
+
+/**
+ * 找到相应id里的FormData做更新
+ * @param arr
+ * @param nodeId
+ * @param callback
+ * @returns
+ */
+export const findNodeById = (arr: BaseBlock[], nodeId: string, data: object) => {
+  const array = cloneDeep(arr);
+
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i] as any;
+    if (element.id === nodeId) {
+      element.formData = deepmerge.all([element.formData, data]);
+      return array;
+    }
+  }
+
+  return array;
 };
