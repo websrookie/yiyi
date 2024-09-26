@@ -33,13 +33,6 @@ watch(
 );
 
 watch(
-  () => edit.isMobileViewport,
-  (value) => {
-    if (value) edit.setConfigPanelShow(true);
-  },
-);
-
-watch(
   () => edit.configPanelShow,
   (value) => {
     if (!value) edit.setCurrentSelect(null);

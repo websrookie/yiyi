@@ -1,12 +1,12 @@
 <template>
-  <div class="edit-render">
+  <div class="edit-render" :style="pageStyle" :class="pageClass">
     <edit-render-drag :list="list" :group="dragGroup" class="render"></edit-render-drag>
     <el-empty class="empty" v-if="!list?.length" description="请在左侧拖入组件到此处"></el-empty>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, computed } from 'vue';
 import type { BaseBlock } from '@/types/edit';
 import { dragGroup } from './nested';
 import { useEditorStore } from '@/stores/edit';
@@ -34,6 +34,14 @@ watch(
     deep: true,
   },
 );
+
+const pageStyle = computed(() => {
+  return {};
+});
+
+const pageClass = computed(() => {
+  return { 'is-mobile': edit.isMobileViewport };
+});
 </script>
 
 <style scoped lang="scss">

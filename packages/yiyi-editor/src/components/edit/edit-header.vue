@@ -24,10 +24,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { type Viewport } from '@/types/edit';
+import { useEditorStore } from '@/stores/edit';
+
+const edit = useEditorStore();
 
 const viewport = ref<Viewport>('desktop');
+
+watch(viewport, (value) => {
+  edit.setViewport(value);
+  edit.setConfigPanelShow(value === 'mobile');
+});
 </script>
 
 <style scoped lang="scss">

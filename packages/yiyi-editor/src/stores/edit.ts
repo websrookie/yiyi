@@ -19,6 +19,10 @@ export const useEditorStore = defineStore('edit', {
      * 所有的配置信息
      */
     blocksConfig: [] as BaseBlock[],
+    /**
+     * 渲染去相关配置
+     */
+    pageConfig: {},
   }),
   getters: {
     isMobileViewport: (state) => state.viewport === 'mobile',
