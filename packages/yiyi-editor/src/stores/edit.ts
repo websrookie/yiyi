@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import type { BaseBlock, Viewport } from '@/types/edit';
+import type { PageSchemaFormData } from '@/config/schema';
 
 export const useEditorStore = defineStore('edit', {
   state: () => ({
@@ -22,7 +23,7 @@ export const useEditorStore = defineStore('edit', {
     /**
      * 渲染去相关配置
      */
-    pageConfig: {},
+    pageConfig: {} as PageSchemaFormData,
   }),
   getters: {
     isMobileViewport: (state) => state.viewport === 'mobile',
@@ -39,6 +40,9 @@ export const useEditorStore = defineStore('edit', {
     },
     setBlocksConfig(value: BaseBlock[]) {
       this.blocksConfig = value;
+    },
+    setPageConfig(value: PageSchemaFormData) {
+      this.pageConfig = value;
     },
   },
 });

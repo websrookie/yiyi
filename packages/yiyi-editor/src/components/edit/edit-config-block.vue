@@ -14,6 +14,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
+import deepmerge from 'deepmerge';
 import { useEditorStore } from '@/stores/edit';
 import { type BlockSchemaKeys, blockSchema } from '@/config/schema';
 import type { BaseBlock } from '@/types/edit';
@@ -29,6 +30,12 @@ const callback = (params: { data: object; id: string }) => {
   const newBlockConfig = findNodeById(blockConfig, id, data);
 
   edit.setBlocksConfig(newBlockConfig);
+
+  if (edit.currentSelect!.id === id) {
+    const currentSelect = edit.currentSelect;
+    currentSelect!.formData = deepmerge.all([currentSelect?.formData || {}, data]);
+    edit.setCurrentSelect(currentSelect);
+  }
 };
 
 watch(

@@ -10,6 +10,7 @@ declare module 'vue' {
     2: typeof import('./src/components/edit-header copy 2.vue')['default']
     3: typeof import('./src/components/edit-header copy 3.vue')['default']
     4: typeof import('./src/components/edit-header copy 4.vue')['default']
+    ConfigFiles: typeof import('./src/components/config/config-files.vue')['default']
     ConfigInput: typeof import('./src/components/config/config-input.vue')['default']
     copy: typeof import('./src/components/edit/edit-render copy.vue')['default']
     EditBlock: typeof import('./src/components/edit/edit-block.vue')['default']

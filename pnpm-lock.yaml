@@ -35,6 +35,7 @@ importers:
       '@vue/eslint-config-typescript': ^13.0.0
       '@vue/tsconfig': ^0.5.1
       '@yiyi/ui': workspace:~
+      deepmerge: ^4.3.1
       element-plus: ^2.8.3
       eslint: ^8.57.0
       eslint-plugin-vue: ^9.23.0
@@ -67,6 +68,7 @@ importers:
       '@vue/eslint-config-prettier': 9.0.0_edq2hqhb5ywdex3d2mazvmybbq
       '@vue/eslint-config-typescript': 13.0.0_ywt565gdfin4hw64cn4g5koeoi
       '@vue/tsconfig': 0.5.1
+      deepmerge: 4.3.1
       eslint: 8.57.1
       eslint-plugin-vue: 9.28.0_eslint@8.57.1
       loadsh: 0.0.4
