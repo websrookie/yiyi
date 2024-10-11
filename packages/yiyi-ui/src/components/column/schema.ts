@@ -3,15 +3,13 @@
 import { Type, type Static } from '@sinclair/typebox';
 import { schemaAllViewport } from '@/utils/components';
 
-const cols = Type.Array(
-  Type.Number({
-    title: '列数',
-    code: 'config-column',
-    default: 0.5,
-    minItems: 2,
-    maxItems: 4,
-  })
-);
+const cols = Type.Array(Type.Number(), {
+  title: '列数',
+  code: 'config-column',
+  default: 0.5,
+  minItems: 2,
+  maxItems: 4,
+});
 
 const background = Type.String({
   title: '背景',
@@ -20,7 +18,7 @@ const background = Type.String({
 });
 
 const schema = Type.Object({
-  src: schemaAllViewport(cols),
+  cols: schemaAllViewport(cols),
   background: schemaAllViewport(background),
 });
 

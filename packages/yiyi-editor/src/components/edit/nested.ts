@@ -49,14 +49,37 @@ export interface FindNodeByIdCallBack {
  * @param callback
  * @returns
  */
-export const findNodeById = (arr: BaseBlock[], nodeId: string, data: object) => {
+export const findNodeById = (
+  arr: BaseBlock[],
+  nodeId: string,
+  callback: (params: FindNodeByIdCallBack) => void,
+) => {
   const array = cloneDeep(arr);
 
   for (let i = 0; i < array.length; i++) {
     const element = array[i] as any;
     if (element.id === nodeId) {
-      element.formData = deepmerge.all([element.formData, data]);
+      // 如果找到了匹配的节点，直接回调返回
+      callback({
+        array,
+        node: element,
+        index: i,
+      });
       return array;
+    }
+
+    if (element.children?.length) {
+      // 如果节点有子节点，则递归调用 findNodeById 函数
+      for (let j = 0; j < element.children.length; j++) {
+        const elementChildren = element.children[j];
+        if (!elementChildren.length) continue;
+        const newChildren = findNodeById(elementChildren, nodeId, callback);
+        if (!isEqual(newChildren, elementChildren)) {
+          // 如果子节点数组有更新，则更新当前节点的子节点数组
+          if (newChildren) element.children[j] = newChildren;
+          return array;
+        }
+      }
     }
   }
 
