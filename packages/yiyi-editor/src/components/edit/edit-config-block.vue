@@ -1,6 +1,6 @@
 <template>
   <div class="edit-config-block">
-    <edit-config-render :list="list" @callback="callback">
+    <edit-config-render :list="list" :schema="schema" @callback="callback">
       <div v-if="!edit.currentSelect">
         <el-empty description="请在左侧拖入组建后，点击选中组件">
           <template #image>
@@ -16,11 +16,12 @@
 import { ref, watch } from 'vue';
 import deepmerge from 'deepmerge';
 import { useEditorStore } from '@/stores/edit';
-import { type BlockSchemaKeys, blockSchema } from '@/config/schema';
+import { type BlockSchemaKeys, blockSchema, type BlockSchema } from '@/config/schema';
 import type { BaseBlock } from '@/types/edit';
 import { findNodeById } from './nested';
 
 const edit = useEditorStore();
+const schema = ref<BlockSchema[BlockSchemaKeys]>();
 
 const list = ref<BaseBlock[]>([]);
 const callback = (params: { data: object; id: string }) => {
@@ -60,6 +61,8 @@ watch(
       list.value = [];
       return;
     }
+    schema.value = blockSchema[code];
+
     const { formData, id } = value as any;
     const listResult = Object.fromEntries(
       Object.entries(properties).map((itemChild) => {
