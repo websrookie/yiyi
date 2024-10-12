@@ -17,7 +17,19 @@
           class="block-nested-render"
           :class="activeClass(element)"
           @click.stop="edit.setCurrentSelect(element)"
+          @mouseenter="hoverId = element.id"
+          @mouseleave="hoverId = ''"
         >
+          <transition name="fade">
+            <edit-render-hover
+              v-show="hoverId === element.id"
+              :id="element.id"
+              :name="element.name"
+              @copy="copy"
+              @clear="clear"
+            >
+            </edit-render-hover>
+          </transition>
           <component
             :is="renderComponentCode(element)"
             :key="element.id"
@@ -42,7 +54,19 @@
           class="block-render"
           :class="activeClass(element)"
           @click.stop="edit.setCurrentSelect(element)"
+          @mouseenter="hoverId = element.id"
+          @mouseleave="hoverId = ''"
         >
+          <transition name="fade">
+            <edit-render-hover
+              v-show="hoverId === element.id"
+              :id="element.id"
+              :name="element.name"
+              @copy="copy"
+              @clear="clear"
+            >
+            </edit-render-hover>
+          </transition>
           <component
             :is="renderComponentCode(element)"
             :data="element.formData"
@@ -56,16 +80,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useEditorStore } from '@/stores/edit';
-import { move, clone, nestedClass } from './nested';
+import { move, clone, nestedClass, findNodeById, replaceNodeId } from './nested';
 import { COMPONENT_PREFIX } from '@/config';
+import { type BaseBlock } from '@/types/edit';
 
 defineOptions({
   name: 'EditRenderDrag',
 });
 
 const edit = useEditorStore();
+const hoverId = ref('');
 
 defineProps({
   list: {
@@ -99,6 +125,28 @@ const activeClass = computed(() => {
     return { 'is-active': element.id === id };
   };
 });
+
+const handleNodeById = (arr: BaseBlock[], nodeId: string, type: 'copy' | 'clear') => {
+  return findNodeById(arr, nodeId, (params) => {
+    const { array, node, index } = params;
+    if (type === 'copy') array.splice(index, 0, replaceNodeId(node));
+    else array.splice(index, 1);
+  });
+};
+
+const copy = (id: string) => {
+  if (!edit.blocksConfig) return;
+  const newBlockConfig = handleNodeById(edit.blocksConfig, id, 'copy');
+  edit.setCurrentSelect(null);
+  edit.setBlocksConfig(newBlockConfig);
+};
+
+const clear = (id: string) => {
+  if (!edit.blocksConfig) return;
+  const newBlockConfig = handleNodeById(edit.blocksConfig, id, 'clear');
+  edit.setCurrentSelect(null);
+  edit.setBlocksConfig(newBlockConfig);
+};
 </script>
 
 <style scoped lang="scss">

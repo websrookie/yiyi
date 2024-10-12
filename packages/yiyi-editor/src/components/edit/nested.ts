@@ -85,3 +85,22 @@ export const findNodeById = (
 
   return array;
 };
+
+/**
+ * 替换 node id
+ * @param node
+ * @returns
+ */
+export const replaceNodeId = (node: any) => {
+  if (!node) return node;
+  const newNode = cloneDeep(node);
+  const { children } = newNode || {};
+  if (children?.length) {
+    for (let i = 0; i < children.length; i++) {
+      for (let j = 0; j < children[i].length; j++) {
+        children[i][j] = replaceNodeId(children[i][j]);
+      }
+    }
+  }
+  return clone(newNode);
+};
