@@ -16,7 +16,9 @@ app.component('yiyi-icon', Icon);
 app.component('draggable', Draggable);
 
 app.use(createPinia());
-app.use(Yiyi);
+app.use<{ platform: 'editor' | 'user' }>(Yiyi, {
+  platform: 'editor',
+});
 app.use(router);
 
 app.mount('#app');

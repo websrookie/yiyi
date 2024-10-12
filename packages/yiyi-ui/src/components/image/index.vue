@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts" name="YiyiImage">
+import { defineComponent, computed, toRefs, inject } from 'vue-demi';
 import { createNameSpace } from '@/utils/components';
-import { defineComponent, computed, toRefs } from 'vue-demi';
 import { props } from './props';
 import YiyiEmpty from '../empty';
 import YiyiLink from '../link';
@@ -26,11 +26,13 @@ export default defineComponent({
     YiyiLink,
   },
   setup(props) {
+    const platform = inject('platform');
     const { data, viewport } = toRefs(props);
     const classes = computed(() => [n()]);
-    const display = computed(() =>
-      data.value?.display ? [viewport.value] : ''
-    );
+    const display = computed(() => {
+      const display = data.value?.display?.[viewport.value];
+      return typeof display === 'boolean' ? display : true;
+    });
     const src = computed(() => data.value?.src?.[viewport.value] || '');
     const link = computed(() => data.value?.link?.[viewport.value] || '');
     const width = computed(() => data.value?.width?.[viewport.value] || '');
@@ -39,6 +41,14 @@ export default defineComponent({
       width: width.value,
       height: height.value,
     }));
+    const displayStyle = computed(() => {
+      if (platform === 'editor') {
+        return !display.value
+          ? { opacity: 0.4, filter: 'brightness(0.7)' }
+          : {};
+      }
+      return !display.value ? { display: 'none' } : {};
+    });
     return {
       classes,
       styles,
@@ -47,6 +57,7 @@ export default defineComponent({
       display,
       width,
       height,
+      displayStyle,
     };
   },
 });

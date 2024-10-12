@@ -18,10 +18,11 @@ export const schema = {
 
 const components = [YiyiImage, YiyiColumn];
 
-const install = (app: App) => {
+const install = (app: App, options: { platform: 'editor' | 'user' }) => {
   components.forEach((component: any) => {
     app.component(component.name, component);
   });
+  app.provide('platform', options.platform);
 };
 
 export const componentsAllViewport = {
